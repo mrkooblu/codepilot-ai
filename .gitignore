@@ -1,3 +1,22 @@
+# dependencies
+node_modules/
+.pnpm-store/
+
+# next.js
+.next/
+out/
+
+# env
+.env
+.env.local
+.env*.local
+
+# internal docs (not for public repo)
 design-spec.md
 qa-report.md
 *.png
+
+# misc
+.DS_Store
+*.tsbuildinfo
+next-env.d.ts
