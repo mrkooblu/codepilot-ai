@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodePilot AI — Screenshot in. Code out.</title>
+<meta name="description" content="Drop a screenshot, pick your framework, get production-ready code. Unlimited conversions for $19/mo. No credits. No tokens. No surprises.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* 1. Custom Properties */
+:root {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8F8FA;
+  --text-primary: #1A1A1A;
+  --text-secondary: #6B6B6B;
+  --text-tertiary: #9B9B9B;
+  --accent: #1A1A1A;
+  --accent-hover: #333333;
+  --border: #E8E8E8;
+  --border-subtle: #F0F0F0;
+  --blue: #0066FF;
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 48px;
+  --space-7: 64px;
+  --space-8: 80px;
+  --space-9: 96px;
+  --space-10: 120px;
+  --space-11: 160px;
+  --space-12: 200px;
+  --content-max: 1120px;
+  --content-narrow: 720px;
+}
+
+/* 2. Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 3. Base Typography */
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  background: var(--bg-primary);
+}
+
+h1, h2, h3 {
+  color: var(--text-primary);
+}
+
+h1 {
+  font-size: 4.5rem;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: 2.75rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* 4. Layout */
+.container {
+  width: 100%;
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: var(--space-7);
+}
+
+.overline {
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-2);
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 520px;
+  margin: var(--space-2) auto 0;
+}
+
+/* 5. Navigation */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: var(--space-2) 0;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.nav.scrolled {
+  border-bottom-color: var(--border-subtle);
+}
+
+.nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--text-primary);
+}
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1;
+  color: #FFFFFF;
+  background: var(--accent);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.nav-cta:hover {
+  background: var(--accent-hover);
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+  color: #FFFFFF;
+  background: var(--accent);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--text-primary);
+  background: transparent;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.btn-secondary:hover {
+  border-color: var(--text-primary);
+}
+
+/* 6. Hero */
+.hero {
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-10);
+  text-align: center;
+}
+
+.hero-overline {
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-3);
+}
+
+.hero h1 {
+  max-width: 14ch;
+  margin: 0 auto var(--space-3);
+}
+
+.hero-subtitle {
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 520px;
+  margin: 0 auto var(--space-4);
+}
+
+.hero-subtitle strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.trust-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-10);
+}
+
+.trust-bar .divider {
+  color: var(--border);
+}
+
+.hero-visual {
+  max-width: 960px;
+  margin: 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.08);
+  background: var(--bg-primary);
+}
+
+.hero-visual-browser-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-secondary);
+}
+
+.browser-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.browser-dot.red { background: #FF5F57; }
+.browser-dot.yellow { background: #FFBD2E; }
+.browser-dot.green { background: #28C840; }
+
+.browser-url {
+  flex: 1;
+  margin-left: 8px;
+  padding: 6px 12px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  font-family: 'Inter', sans-serif;
+}
+
+.hero-visual-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 400px;
+}
+
+.hero-visual-left {
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  border-right: 1px solid var(--border);
+}
+
+.hero-visual-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-tertiary);
+  margin-bottom: 8px;
+}
+
+.mockup-screenshot {
+  flex: 1;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-3);
+  gap: 12px;
+}
+
+.mockup-nav-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mockup-logo {
+  width: 48px;
+  height: 8px;
+  background: var(--border);
+  border-radius: 4px;
+}
+
+.mockup-nav-links {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.mockup-nav-link {
+  width: 32px;
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+}
+
+.mockup-hero-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: var(--space-3) 0;
+}
+
+.mockup-heading {
+  width: 60%;
+  height: 12px;
+  background: #D0D0D0;
+  border-radius: 4px;
+}
+
+.mockup-heading.short {
+  width: 40%;
+  height: 10px;
+}
+
+.mockup-text-line {
+  width: 70%;
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+}
+
+.mockup-btn {
+  width: 80px;
+  height: 24px;
+  background: var(--text-primary);
+  border-radius: 4px;
+  margin-top: 8px;
+}
+
+.mockup-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+}
+
+.mockup-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mockup-card-title {
+  width: 60%;
+  height: 6px;
+  background: #D0D0D0;
+  border-radius: 3px;
+}
+
+.mockup-card-text {
+  width: 90%;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+}
+
+.hero-visual-right {
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  background: var(--bg-primary);
+}
+
+.mockup-code {
+  flex: 1;
+  background: #1A1A1A;
+  border-radius: 4px;
+  padding: var(--space-3);
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.75rem;
+  line-height: 1.8;
+  overflow: hidden;
+}
+
+.mockup-code .line {
+  display: flex;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.mockup-code .line-num {
+  color: #4A4A4A;
+  user-select: none;
+  min-width: 20px;
+  text-align: right;
+}
+
+.mockup-code .tag { color: #7CACF8; }
+.mockup-code .attr { color: #D19A66; }
+.mockup-code .str { color: #98C379; }
+.mockup-code .punc { color: #6B6B6B; }
+.mockup-code .kw { color: #C678DD; }
+.mockup-code .fn { color: #61AFEF; }
+.mockup-code .txt { color: #ABB2BF; }
+
+/* 7. How It Works */
+.how-it-works {
+  padding: var(--space-10) 0;
+  background: var(--bg-secondary);
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.step-card {
+  padding: var(--space-5) var(--space-4);
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-align: left;
+}
+
+.step-number {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-2);
+}
+
+.step-card h3 {
+  margin-bottom: var(--space-2);
+}
+
+.step-card p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+/* 8. Why CodePilot */
+.why-section {
+  padding: var(--space-10) 0;
+  background: var(--bg-primary);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+}
+
+.feature-card {
+  padding: var(--space-4);
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-align: left;
+}
+
+.feature-card h3 {
+  margin-bottom: var(--space-2);
+}
+
+.feature-card p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.comparison-wrapper {
+  margin-top: var(--space-7);
+}
+
+.comparison-table {
+  width: 100%;
+  max-width: var(--content-narrow);
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+.comparison-table th {
+  padding: 16px 24px;
+  text-align: left;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-tertiary);
+  border-bottom: 2px solid var(--border);
+}
+
+.comparison-table td {
+  padding: 14px 24px;
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.comparison-table td:first-child {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.comparison-table td.check {
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.link-blue {
+  color: var(--blue);
+}
+
+.live-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--blue);
+  border-radius: 50%;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.x-mark {
+  color: var(--text-tertiary);
+}
+
+.social-proof-line {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--text-tertiary);
+  margin-top: var(--space-7);
+}
+
+/* 9. Pricing */
+.pricing-section {
+  padding: var(--space-10) 0;
+  background: var(--bg-secondary);
+}
+
+.billing-toggle-wrapper {
+  text-align: center;
+  margin-bottom: var(--space-2);
+}
+
+.billing-toggle {
+  display: inline-flex;
+  background: var(--border-subtle);
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.billing-option {
+  padding: 8px 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+.billing-option.active {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.billing-save {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+
+.pricing-card {
+  padding: var(--space-5) var(--space-4);
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.pricing-card.featured {
+  border: 2px solid var(--text-primary);
+}
+
+.pricing-popular {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-1);
+}
+
+.pricing-tier {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.015em;
+  margin-bottom: var(--space-3);
+}
+
+.pricing-price {
+  margin-bottom: var(--space-1);
+}
+
+.pricing-value {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.pricing-currency {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  vertical-align: super;
+}
+
+.pricing-period {
+  font-size: 0.875rem;
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-3);
+}
+
+.pricing-desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.pricing-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: var(--space-5);
+  flex: 1;
+}
+
+.pricing-features li {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.pricing-features li::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  margin-top: 2px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%230066FF'%3E%3Cpath d='M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.pricing-card .btn-primary,
+.pricing-card .btn-secondary {
+  width: 100%;
+  text-align: center;
+}
+
+/* 10. FAQ */
+.faq-section {
+  padding: var(--space-10) 0;
+  background: var(--bg-primary);
+}
+
+.faq-list {
+  max-width: var(--content-narrow);
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 24px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  line-height: 1.4;
+}
+
+.faq-icon {
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: var(--text-tertiary);
+  min-width: 24px;
+  text-align: center;
+  transition: opacity 0.3s ease;
+}
+
+.faq-icon .icon-minus {
+  display: none;
+}
+
+.faq-item.open .faq-icon .icon-plus {
+  display: none;
+}
+
+.faq-item.open .faq-icon .icon-minus {
+  display: inline;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-answer-inner {
+  padding: 0 0 24px;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.faq-item.open .faq-answer {
+  max-height: 300px;
+}
+
+/* 11. CTA */
+.cta-section {
+  padding: var(--space-10) 0;
+  background: var(--bg-secondary);
+  text-align: center;
+}
+
+.cta-section h2 {
+  margin-bottom: var(--space-2);
+}
+
+.cta-subtitle {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-4);
+}
+
+.cta-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+/* 12. Footer */
+.footer {
+  padding: var(--space-8) 0 var(--space-5);
+  background: var(--bg-primary);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: var(--space-6);
+  margin-bottom: var(--space-7);
+}
+
+.footer-brand-name {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.footer-brand-tagline {
+  font-size: 0.875rem;
+  color: var(--text-tertiary);
+  line-height: 1.6;
+}
+
+.footer-col-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-2);
+}
+
+.footer-col-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-col-links a {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+}
+
+.footer-col-links a:hover {
+  color: var(--text-primary);
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.footer-copy {
+  font-size: 0.8125rem;
+  color: var(--text-tertiary);
+}
+
+.footer-socials {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.footer-socials a {
+  color: var(--text-tertiary);
+  transition: color 0.2s ease;
+}
+
+.footer-socials a:hover {
+  color: var(--text-primary);
+}
+
+.footer-socials svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* 13. Animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Skip to content */
+.skip-link {
+  position: absolute;
+  top: -48px;
+  left: 0;
+  padding: 8px 16px;
+  background: var(--text-primary);
+  color: #FFFFFF;
+  font-size: 0.875rem;
+  z-index: 200;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* 14. Media Queries */
+@media (min-width: 768px) {
+  .container {
+    padding: 0 40px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 1023px) {
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  h2 {
+    font-size: 2.25rem;
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-5);
+  }
+
+  .hero-visual-content {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .hero-visual-left {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+}
+
+@media (max-width: 639px) {
+  h1 {
+    font-size: 2.75rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  .hero {
+    padding-top: var(--space-11);
+    padding-bottom: var(--space-8);
+  }
+
+  .how-it-works,
+  .why-section,
+  .pricing-section,
+  .faq-section,
+  .cta-section {
+    padding: var(--space-8) 0;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .trust-bar {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .cta-actions {
+    flex-direction: column;
+  }
+
+  .cta-actions .btn-primary,
+  .cta-actions .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: var(--space-2);
+    text-align: center;
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    padding: 12px 16px;
+    font-size: 0.8125rem;
+  }
+
+  .section-header {
+    margin-bottom: var(--space-5);
+  }
+}
+
+/* Focus states */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--text-primary);
+  outline-offset: 2px;
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<!-- Navigation -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <a href="/" class="nav-logo">CodePilot</a>
+    <ul class="nav-links">
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a href="#" class="nav-cta">Get Started</a>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <p class="hero-overline reveal"><span class="live-dot"></span>CodePilot AI</p>
+    <h1 class="reveal">Screenshot in.<br>Code out.</h1>
+    <p class="hero-subtitle reveal">Drop a screenshot, pick your framework, get production-ready code. Unlimited for <strong>$19/mo</strong>.</p>
+    <div class="hero-actions reveal">
+      <a href="#" class="btn-primary">Start Free</a>
+      <a href="#how-it-works" class="btn-secondary">See How It Works</a>
+    </div>
+    <div class="trust-bar reveal">
+      <span>No credit card</span>
+      <span class="divider">&middot;</span>
+      <span>5 free generations/day</span>
+      <span class="divider">&middot;</span>
+      <span>4 frameworks</span>
+    </div>
+
+    <div class="hero-visual reveal">
+      <div class="hero-visual-browser-bar">
+        <div class="browser-dot red"></div>
+        <div class="browser-dot yellow"></div>
+        <div class="browser-dot green"></div>
+        <div class="browser-url">codepilot.ai</div>
+      </div>
+      <div class="hero-visual-content">
+        <div class="hero-visual-left">
+          <div class="hero-visual-label">Screenshot</div>
+          <div class="mockup-screenshot">
+            <div class="mockup-nav-bar">
+              <div class="mockup-logo"></div>
+              <div class="mockup-nav-links">
+                <div class="mockup-nav-link"></div>
+                <div class="mockup-nav-link"></div>
+                <div class="mockup-nav-link"></div>
+              </div>
+            </div>
+            <div class="mockup-hero-block">
+              <div class="mockup-heading"></div>
+              <div class="mockup-heading short"></div>
+              <div class="mockup-text-line"></div>
+              <div class="mockup-btn"></div>
+            </div>
+            <div class="mockup-cards">
+              <div class="mockup-card">
+                <div class="mockup-card-title"></div>
+                <div class="mockup-card-text"></div>
+                <div class="mockup-card-text" style="width:70%"></div>
+              </div>
+              <div class="mockup-card">
+                <div class="mockup-card-title"></div>
+                <div class="mockup-card-text"></div>
+                <div class="mockup-card-text" style="width:70%"></div>
+              </div>
+              <div class="mockup-card">
+                <div class="mockup-card-title"></div>
+                <div class="mockup-card-text"></div>
+                <div class="mockup-card-text" style="width:70%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual-right">
+          <div class="hero-visual-label">Generated Code</div>
+          <div class="mockup-code">
+            <div class="line"><span class="line-num"> 1</span><span class="kw">import</span> <span class="fn">React</span> <span class="kw">from</span> <span class="str">'react'</span><span class="punc">;</span></div>
+            <div class="line"><span class="line-num"> 2</span></div>
+            <div class="line"><span class="line-num"> 3</span><span class="kw">export default</span> <span class="kw">function</span> <span class="fn">Hero</span><span class="punc">() {</span></div>
+            <div class="line"><span class="line-num"> 4</span>  <span class="kw">return</span> <span class="punc">(</span></div>
+            <div class="line"><span class="line-num"> 5</span>    <span class="punc">&lt;</span><span class="tag">section</span> <span class="attr">className</span><span class="punc">=</span><span class="str">"hero"</span><span class="punc">&gt;</span></div>
+            <div class="line"><span class="line-num"> 6</span>      <span class="punc">&lt;</span><span class="tag">nav</span> <span class="attr">className</span><span class="punc">=</span><span class="str">"nav"</span><span class="punc">&gt;</span></div>
+            <div class="line"><span class="line-num"> 7</span>        <span class="punc">&lt;</span><span class="tag">div</span> <span class="attr">className</span><span class="punc">=</span><span class="str">"logo"</span> <span class="punc">/&gt;</span></div>
+            <div class="line"><span class="line-num"> 8</span>        <span class="punc">&lt;</span><span class="tag">ul</span> <span class="attr">className</span><span class="punc">=</span><span class="str">"links"</span><span class="punc">&gt;</span></div>
+            <div class="line"><span class="line-num"> 9</span>          <span class="punc">&lt;</span><span class="tag">li</span><span class="punc">&gt;</span><span class="txt">Features</span><span class="punc">&lt;/</span><span class="tag">li</span><span class="punc">&gt;</span></div>
+            <div class="line"><span class="line-num">10</span>          <span class="punc">&lt;</span><span class="tag">li</span><span class="punc">&gt;</span><span class="txt">Pricing</span><span class="punc">&lt;/</span><span class="tag">li</span><span class="punc">&gt;</span></div>
+            <div class="line"><span class="line-num">11</span>        <span class="punc">&lt;/</span><span class="tag">ul</span><span class="punc">&gt;</span></div>
+            <div class="line"><span class="line-num">12</span>      <span class="punc">&lt;/</span><span class="tag">nav</span><span class="punc">&gt;</span></div>
+            <div class="line"><span class="line-num">13</span>      <span class="punc">&lt;</span><span class="tag">h1</span><span class="punc">&gt;</span><span class="txt">Build faster</span><span class="punc">&lt;/</span><span class="tag">h1</span><span class="punc">&gt;</span></div>
+            <div class="line"><span class="line-num">14</span>      <span class="punc">&lt;</span><span class="tag">p</span><span class="punc">&gt;</span><span class="txt">Ship with</span></div>
+            <div class="line"><span class="line-num">15</span>        <span class="txt">confidence.</span><span class="punc">&lt;/</span><span class="tag">p</span><span class="punc">&gt;</span></div>
+            <div class="line"><span class="line-num">16</span>      <span class="punc">&lt;</span><span class="tag">button</span><span class="punc">&gt;</span></div>
+            <div class="line"><span class="line-num">17</span>        <span class="txt">Get Started</span></div>
+            <div class="line"><span class="line-num">18</span>      <span class="punc">&lt;/</span><span class="tag">button</span><span class="punc">&gt;</span></div>
+            <div class="line"><span class="line-num">19</span>    <span class="punc">&lt;/</span><span class="tag">section</span><span class="punc">&gt;</span></div>
+            <div class="line"><span class="line-num">20</span>  <span class="punc">);</span></div>
+            <div class="line"><span class="line-num">21</span><span class="punc">}</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How It Works -->
+<section class="how-it-works" id="how-it-works">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="overline">How It Works</p>
+      <h2>Three steps. Thirty seconds.</h2>
+      <p class="subtitle">No setup, no learning curve, no friction.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card reveal">
+        <div class="step-number">01</div>
+        <h3>Drop your screenshot</h3>
+        <p>Drag and drop any image, paste from clipboard, or upload a file. PNG, JPG, or any screenshot from any design tool.</p>
+      </div>
+      <div class="step-card reveal" style="transition-delay: 0.1s;">
+        <div class="step-number">02</div>
+        <h3>Pick a framework</h3>
+        <p>Choose React, Vue, HTML + Tailwind, or plain HTML/CSS. The AI generates clean, responsive code in your framework.</p>
+      </div>
+      <div class="step-card reveal" style="transition-delay: 0.2s;">
+        <div class="step-number">03</div>
+        <h3>Copy and ship</h3>
+        <p>Copy the code to your clipboard, download the file, or export as ZIP. The code is yours to deploy anywhere.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why CodePilot -->
+<section class="why-section" id="why">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="overline">Why CodePilot</p>
+      <h2>Built for developers who ship.</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <h3>Truly unlimited</h3>
+        <p>$19/month for unlimited conversions. No credits, no tokens, no hidden costs. Fix AI mistakes without paying extra.</p>
+      </div>
+      <div class="feature-card reveal" style="transition-delay: 0.1s;">
+        <h3>Production-ready output</h3>
+        <p>Clean, formatted code with responsive layouts and proper semantics. Not verbose AI-generated spaghetti.</p>
+      </div>
+      <div class="feature-card reveal" style="transition-delay: 0.1s;">
+        <h3>Your framework, your code</h3>
+        <p>React, Vue, HTML + Tailwind, or plain HTML/CSS. Not locked into one ecosystem. Deploy anywhere.</p>
+      </div>
+      <div class="feature-card reveal" style="transition-delay: 0.2s;">
+        <h3>Simple by design</h3>
+        <p>No IDE to learn. No deployment pipeline. No backend complexity. Drop a screenshot, get code, ship it.</p>
+      </div>
+    </div>
+
+    <div class="comparison-wrapper reveal">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>CodePilot</th>
+            <th>Others</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Unlimited usage</td>
+            <td class="check">&#10003;</td>
+            <td class="x-mark">Credit-metered</td>
+          </tr>
+          <tr>
+            <td>Flat-rate pricing</td>
+            <td class="check">$19/mo</td>
+            <td class="x-mark">$20&#8211;26 + overages</td>
+          </tr>
+          <tr>
+            <td>Free retries</td>
+            <td class="check">&#10003;</td>
+            <td class="x-mark">Each retry costs credits</td>
+          </tr>
+          <tr>
+            <td>Multi-framework</td>
+            <td class="check">4 frameworks</td>
+            <td class="x-mark">1&#8211;2 frameworks</td>
+          </tr>
+          <tr>
+            <td>No lock-in</td>
+            <td class="check">Deploy anywhere</td>
+            <td class="x-mark">Ecosystem lock-in</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="social-proof-line reveal">10,000+ screenshots converted and counting. <a href="#pricing" class="link-blue">See pricing</a></p>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section class="pricing-section" id="pricing">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="overline">Pricing</p>
+      <h2>Simple, honest pricing.</h2>
+      <p class="subtitle">One price for unlimited conversions. No credits to track. No surprise invoices.</p>
+    </div>
+
+    <div class="billing-toggle-wrapper reveal">
+      <div class="billing-toggle">
+        <button class="billing-option active" data-billing="monthly">Monthly</button>
+        <button class="billing-option" data-billing="annual">Annual <span class="billing-save">Save 17%</span></button>
+      </div>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="pricing-card reveal">
+        <div class="pricing-tier">Free</div>
+        <div class="pricing-price">
+          <span class="pricing-value"><span class="pricing-currency">$</span>0</span>
+        </div>
+        <div class="pricing-period">forever</div>
+        <p class="pricing-desc">Perfect for trying it out.</p>
+        <ul class="pricing-features">
+          <li>5 generations per day</li>
+          <li>All 4 frameworks</li>
+          <li>Full code output</li>
+          <li>Live preview</li>
+          <li>Copy and download</li>
+        </ul>
+        <a href="#" class="btn-secondary">Get Started</a>
+      </div>
+      <div class="pricing-card featured reveal" style="transition-delay: 0.1s;">
+        <div class="pricing-popular">Most Popular</div>
+        <div class="pricing-tier">Pro</div>
+        <div class="pricing-price">
+          <span class="pricing-value"><span class="pricing-currency">$</span><span data-monthly="19" data-annual="16">19</span></span>
+        </div>
+        <div class="pricing-period" data-monthly-text="per month" data-annual-text="per month, billed annually">per month</div>
+        <p class="pricing-desc">For developers who need unlimited power.</p>
+        <ul class="pricing-features">
+          <li>Unlimited generations</li>
+          <li>All 4 frameworks</li>
+          <li>Free retries</li>
+          <li>No watermark</li>
+          <li>Project history</li>
+          <li>Email support</li>
+        </ul>
+        <a href="#" class="btn-primary">Start Free Trial</a>
+      </div>
+      <div class="pricing-card reveal" style="transition-delay: 0.2s;">
+        <div class="pricing-tier">Team</div>
+        <div class="pricing-price">
+          <span class="pricing-value"><span class="pricing-currency">$</span><span data-monthly="49" data-annual="41">49</span></span>
+        </div>
+        <div class="pricing-period" data-monthly-text="per month" data-annual-text="per month, billed annually">per month</div>
+        <p class="pricing-desc">For agencies and teams.</p>
+        <ul class="pricing-features">
+          <li>Everything in Pro, plus:</li>
+          <li>3 team seats (+$15/seat)</li>
+          <li>API access</li>
+          <li>Shared library</li>
+          <li>Priority support</li>
+        </ul>
+        <a href="#" class="btn-secondary">Contact Sales</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="overline">FAQ</p>
+      <h2>Common questions, straight answers.</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span>What frameworks does CodePilot support?</span>
+          <span class="faq-icon"><span class="icon-plus">+</span><span class="icon-minus">&minus;</span></span>
+        </button>
+        <div class="faq-answer" role="region">
+          <div class="faq-answer-inner">CodePilot currently supports React, Vue, HTML + Tailwind CSS, and plain HTML/CSS. All four frameworks are available on every plan, including the free tier. We chose these four because they cover approximately 85% of web development projects.</div>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span>How accurate is the generated code?</span>
+          <span class="faq-icon"><span class="icon-plus">+</span><span class="icon-minus">&minus;</span></span>
+        </button>
+        <div class="faq-answer" role="region">
+          <div class="faq-answer-inner">The generated code typically captures 85&#8211;95% of the layout, structure, and styling from your screenshot. Complex interactions like animations, hover states, and custom JavaScript may need manual refinement. The output is clean, well-structured, and production-ready.</div>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span>What does "unlimited" actually mean?</span>
+          <span class="faq-icon"><span class="icon-plus">+</span><span class="icon-minus">&minus;</span></span>
+        </button>
+        <div class="faq-answer" role="region">
+          <div class="faq-answer-inner">Unlimited means unlimited. Pro users can convert as many screenshots as they want, with as many retries as they need, for a flat $19/month. No credits, no tokens, no hidden caps. If the AI gets something wrong, iterate until it is right -- at no extra cost.</div>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span>Can I use the generated code commercially?</span>
+          <span class="faq-icon"><span class="icon-plus">+</span><span class="icon-minus">&minus;</span></span>
+        </button>
+        <div class="faq-answer" role="region">
+          <div class="faq-answer-inner">Yes. The generated code is 100% yours. Use it in client projects, commercial products, SaaS applications, or any other context. There are no licensing restrictions on the output. You own every line.</div>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span>How is this different from v0, Bolt, or Lovable?</span>
+          <span class="faq-icon"><span class="icon-plus">+</span><span class="icon-minus">&minus;</span></span>
+        </button>
+        <div class="faq-answer" role="region">
+          <div class="faq-answer-inner">Those tools are AI app builders -- they generate full-stack applications from text prompts. We are a focused screenshot-to-code converter. We do one thing and do it well. The key differences: flat-rate unlimited pricing (no credits), multi-framework support (not React-only), and no ecosystem lock-in.</div>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span>Do I need to know how to code?</span>
+          <span class="faq-icon"><span class="icon-plus">+</span><span class="icon-minus">&minus;</span></span>
+        </button>
+        <div class="faq-answer" role="region">
+          <div class="faq-answer-inner">Not necessarily. The generated code works out of the box for simple layouts. However, having basic HTML/CSS knowledge helps you refine and customize the output. Designers and founders use CodePilot to create working prototypes and starting points.</div>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span>What happens if I cancel?</span>
+          <span class="faq-icon"><span class="icon-plus">+</span><span class="icon-minus">&minus;</span></span>
+        </button>
+        <div class="faq-answer" role="region">
+          <div class="faq-answer-inner">Your subscription ends at the end of your billing period. You keep access to all previously generated code. Your account reverts to the free tier with 5 generations per day. No lock-in, no penalties, no data loss.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2 class="reveal">Ready to turn screenshots<br>into production code?</h2>
+    <p class="cta-subtitle reveal">Start free. No credit card. No commitment.</p>
+    <div class="cta-actions reveal">
+      <a href="#" class="btn-primary">Start Free</a>
+      <a href="#pricing" class="btn-secondary">View Pricing</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">CodePilot</div>
+        <p class="footer-brand-tagline">Screenshot to code, done right.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Product</div>
+        <div class="footer-col-links">
+          <a href="#how-it-works">How It Works</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#">Changelog</a>
+          <a href="#">Docs</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Compare</div>
+        <div class="footer-col-links">
+          <a href="#">vs v0</a>
+          <a href="#">vs Bolt</a>
+          <a href="#">vs Others</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Resources</div>
+        <div class="footer-col-links">
+          <a href="#">Blog</a>
+          <a href="#">Support</a>
+          <a href="#">API Docs</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 CodePilot AI</span>
+      <div class="footer-socials">
+        <a href="#" aria-label="X (Twitter)">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="#" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Nav scroll
+  var nav=document.querySelector('.nav');
+  window.addEventListener('scroll',function(){
+    nav.classList.toggle('scrolled',window.scrollY>16);
+  });
+
+  // Scroll reveal
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+    });
+  },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var item=btn.parentElement,isOpen=item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(o){
+        o.classList.remove('open');o.querySelector('.faq-question').setAttribute('aria-expanded','false');
+      });
+      if(!isOpen){item.classList.add('open');btn.setAttribute('aria-expanded','true');}
+    });
+  });
+
+  // Billing toggle
+  var opts=document.querySelectorAll('.billing-option');
+  opts.forEach(function(opt){
+    opt.addEventListener('click',function(){
+      opts.forEach(function(o){o.classList.remove('active');});
+      opt.classList.add('active');
+      var b=opt.getAttribute('data-billing');
+      document.querySelectorAll('[data-monthly]').forEach(function(el){
+        el.textContent=b==='annual'?el.getAttribute('data-annual'):el.getAttribute('data-monthly');
+      });
+      document.querySelectorAll('[data-monthly-text]').forEach(function(el){
+        el.textContent=b==='annual'?el.getAttribute('data-annual-text'):el.getAttribute('data-monthly-text');
+      });
+    });
+  });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var id=this.getAttribute('href');if(id==='#')return;
+      var t=document.querySelector(id);
+      if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
